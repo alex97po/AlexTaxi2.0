@@ -9,6 +9,4 @@ public class Alextaxi2Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Alextaxi2Application.class, args);
 	}
-
-
 }
