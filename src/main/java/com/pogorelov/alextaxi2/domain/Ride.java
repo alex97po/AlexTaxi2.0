@@ -23,9 +23,9 @@ public class Ride {
     @Column
     private double distance;
 
-    @OneToMany
+    @OneToOne
     private Client client;
 
-    @OneToMany
+    @OneToOne
     private Taxi taxi;
 }
