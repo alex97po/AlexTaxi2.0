@@ -12,11 +12,4 @@ public class ClientAuthController {
     @Autowired
     ClientAuthServiceImpl clientAuthServiceImpl;
 
-    @RequestMapping("/login")
-    public String login (String login, String password) {
-        if (clientAuthServiceImpl.auth(login, password)) {
-            return "redirect:/ride-request";
-        }
-        return "redirect:/";
-    }
 }

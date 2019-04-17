@@ -13,7 +13,7 @@ public class ClientAuthServiceImpl implements ClientAuthService {
 
     @Override
     public boolean auth(String login, String password) {
-        ClientAuth clientAuth = clientAuthRepository.findByLoginAndPassword(login, password);
+        ClientAuth clientAuth = clientAuthRepository.findByLoginAndPassword(login, password).get(0);
         if (clientAuth!=null) {
             return true;
         }
