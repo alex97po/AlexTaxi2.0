@@ -1,5 +1,7 @@
 package com.pogorelov.alextaxi2.service;
 
-public interface ClientAuthService {
-    boolean auth (String login, String password);
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+public interface ClientAuthService extends UserDetailsService {
+
 }

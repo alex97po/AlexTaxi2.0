@@ -16,19 +16,7 @@ public class MainController {
     }
 
     @GetMapping ("/taxiorder")
-    public String taxiOrder(@AuthenticationPrincipal Client client) {
+    public String taxiOrder() {
         return "taxiorder";
     }
-
-    @PostMapping("/login")
-    public String taxiOrder1() {
-        return "taxiorder";
-    }
-
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
-
-
 }

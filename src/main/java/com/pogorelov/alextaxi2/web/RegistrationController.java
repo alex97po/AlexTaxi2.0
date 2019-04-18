@@ -24,15 +24,13 @@ public class RegistrationController {
     }
 
     @PostMapping ("/registration")
-    public String addUser (ClientAuth clientAuth, Map<String, Object> model, Client client) {
-        Client clientFromDB = clientRepository.findByName(clientAuth.getLogin());
+    public String addUser (ClientAuth clientAuth, Map<String, Object> model) {
+        ClientAuth clientFromDB = clientAuthRepository.findByLogin(clientAuth.getLogin());
         if (clientFromDB != null) {
             model.put("message", "User exists!");
             return "registration";
         }
         clientAuthRepository.save(clientAuth);
-        client.setClientAuth(clientAuth);
-        clientRepository.save(client);
         return "redirect:/login";
     }
 }
