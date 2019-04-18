@@ -1,5 +1,6 @@
 package com.pogorelov.alextaxi2.config;
 
+import com.pogorelov.alextaxi2.service.ClientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private DataSource dataSource;
+    @Autowired
+    private ClientServiceImpl clientService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -39,7 +42,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(NoOpPasswordEncoder.getInstance())
-                .usersByUsernameQuery("select name from client left join client_auth on client.client_auth_fk= client_auth.id where client_auth.login =? and client_auth.password=?");
+        auth.userDetailsService(clientService).passwordEncoder(NoOpPasswordEncoder.getInstance());
     }
 }

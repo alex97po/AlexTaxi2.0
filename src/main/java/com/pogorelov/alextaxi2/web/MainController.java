@@ -1,13 +1,11 @@
 package com.pogorelov.alextaxi2.web;
 
-import com.pogorelov.alextaxi2.service.ClientService;
-import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.pogorelov.alextaxi2.domain.Client;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
@@ -18,7 +16,7 @@ public class MainController {
     }
 
     @GetMapping ("/taxiorder")
-    public String taxiOrder() {
+    public String taxiOrder(@AuthenticationPrincipal Client client) {
         return "taxiorder";
     }
 

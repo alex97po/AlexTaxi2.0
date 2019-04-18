@@ -1,5 +1,12 @@
 package com.pogorelov.alextaxi2.domain;
 
-public enum Role {
+import org.springframework.security.core.GrantedAuthority;
+
+public enum Role implements GrantedAuthority {
     CLIENT;
+
+    @Override
+    public String getAuthority() {
+        return name();
+    }
 }

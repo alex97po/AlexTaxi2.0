@@ -15,6 +15,7 @@ import java.util.Map;
 public class RegistrationController {
     @Autowired
     private ClientRepository clientRepository;
+    @Autowired
     private ClientAuthRepository clientAuthRepository;
 
     @GetMapping ("/registration")
