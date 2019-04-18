@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class ClientController {
-
-    @Autowired
-    ClientService clientService;
+public class MainController {
 
     @RequestMapping ("/")
     public String main() {
@@ -25,9 +22,14 @@ public class ClientController {
         return "taxiorder";
     }
 
-    @PostMapping("/taxiorder")
+    @PostMapping("/login")
     public String taxiOrder1() {
         return "taxiorder";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 
 

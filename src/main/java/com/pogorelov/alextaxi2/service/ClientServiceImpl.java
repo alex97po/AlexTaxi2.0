@@ -20,5 +20,6 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public void removeClient(Long id) {
         //TODO не получается удалить по id, возвращает Optional
+
     }
 }
